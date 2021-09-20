@@ -26,26 +26,31 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" post install (yarn install | npm install) then load plugin only for editing supported files
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#print_width = 80
+let g:prettier#config#prose_wrap = 'always'
+let g:prettier#config#tab_width = 4
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#semi = 'true'
+
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#config#config_precedence = 'cli-override'
+
 " lean & mean status/tabline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline#extensions#tabline#enabled = 1
-
-" emmet (like), essential toolkit for abbreviation expansion
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mattn/emmet-vim'
-
-" trigger expansion with <Comma> <Comma> keys
-let g:user_emmet_leader_key=','
-
-let g:user_emmet_settings = {
-\  'javascript' : {
-\    'extends' : 'jsx',
-\    'quote_char': "'",
-\  },
-\}
 
 " awesome completion tool
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,21 +76,9 @@ Plug 'vim-scripts/auto-pairs-gentle'
 " `gc` in visual mode to comment out the selection, and much more...
 Plug 'tpope/vim-commentary'
 
-" search tool
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mileszs/ack.vim'
-
 " my favourite colorscheme, bubblegum
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'baskerville/bubblegum'
-
-" enable repeating supported plugin maps with `.`
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'tpope/vim-repeat'
-
-" use CTRL-A/CTRL-X to increment dates, times, and more
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'tpope/vim-speeddating'
 
 " from Sean
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
