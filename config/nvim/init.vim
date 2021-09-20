@@ -5,6 +5,9 @@ syntax on
 set number
 set tabstop=4
 set autoindent
+set smartindent
+set expandtab
+set shiftwidth=4
 
 " only vim can do this
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -27,16 +30,16 @@ nnoremap <leader>t :below 20sp term://$SHELL<cr>i
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
-" credits to:
-" https://stackoverflow.com/a/1708936
 
 " it is ok to wrap lines, just use gj or gk to move
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wrap
 
-" cycle buffers
+" use perttier to auto format code
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:nnoremap gb :bnext<CR>
+" augroup autoformat_settings
+"     autocmd Filetype javascript
+" augroup END
 
 " load plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
