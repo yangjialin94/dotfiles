@@ -26,25 +26,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" post install (yarn install | npm install) then load plugin only for editing supported files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-
-let g:prettier#config#single_quote = 'false'
-let g:prettier#config#print_width = 80
-let g:prettier#config#prose_wrap = 'always'
-let g:prettier#config#tab_width = 4
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#trailing_comma = 'none'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#semi = 'true'
-
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#config#config_precedence = 'cli-override'
-
 " lean & mean status/tabline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
@@ -76,9 +57,42 @@ Plug 'vim-scripts/auto-pairs-gentle'
 " `gc` in visual mode to comment out the selection, and much more...
 Plug 'tpope/vim-commentary'
 
-" my favourite colorscheme, bubblegum
+" colorscheme: bubblegum
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'baskerville/bubblegum'
+
+" recomended from React Doc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'pangloss/vim-javascript'
+
+" Asynchronous Lint Engine (ALE)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'dense-analysis/ale'
+
+let g:ale_fixers = {'javascript': ['eslint'],'python': ['black', 'isort'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint']}
+let g:ale_linters = {'javascript': ['eslint'],'python': ['mypy', 'flake8', 'pylint'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint']}
+
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_flake8_options = '--max-line-length 88 --extend-ignore=E203'
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+let g:prettier#config#tab_width = 4
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#config#config_precedence = 'cli-override'
 
 " from Sean
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -88,10 +102,6 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
-" recomended from React Doc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'pangloss/vim-javascript'
-
 " vim-plug end, add plugins to &runtimepath
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
@@ -99,4 +109,3 @@ call plug#end()
 " activate bubblegum colorscheme
 colorscheme bubblegum-256-dark
 let g:airline_theme='bubblegum'
-
