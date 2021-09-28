@@ -10,9 +10,11 @@ Plug 'sheerun/vim-polyglot'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
 
 " toggle NERDTree with ctrl-e, similar to vscode
-nmap <C-E> :NERDTreeToggle<CR>
+nmap <C-e> :NERDTreeToggle<CR>
 " exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
@@ -47,6 +49,17 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-json', 
+  \ 'coc-marketplace', 
+  \ 'coc-pairs',
+  \ 'coc-pyright', 
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-vimlsp',
+  \ ]
+
 " insert or delete parenthesis in pair
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/auto-pairs-gentle'
@@ -69,8 +82,8 @@ Plug 'pangloss/vim-javascript'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'dense-analysis/ale'
 
-let g:ale_fixers = {'javascript': ['eslint'],'python': ['black', 'isort'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint']}
-let g:ale_linters = {'javascript': ['eslint'],'python': ['mypy', 'flake8', 'pylint'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint']}
+let g:ale_fixers = {'typescript': ['prettier', 'eslint'],'javascript': ['prettier', 'eslint'],'python': ['black', 'isort'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
+let g:ale_linters = {'typescript': ['prettier', 'eslint'],'javascript': ['eslint'],'python': ['mypy', 'flake8', 'pylint'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
 
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
@@ -90,15 +103,25 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 let g:prettier#config#tab_width = 4
+let g:prettier#config#single_quote = 'true'
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#config#config_precedence = 'cli-override'
 
-" from Sean
+" manipulating and moving between function arguments
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'PeterRincker/vim-argumentative'
+
+" tmux
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'christoomey/vim-tmux-navigator'
+
+" surroundings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-surround'
+
+" fuzzy finder
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
@@ -109,3 +132,4 @@ call plug#end()
 " activate bubblegum colorscheme
 colorscheme bubblegum-256-dark
 let g:airline_theme='bubblegum'
+
