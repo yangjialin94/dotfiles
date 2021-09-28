@@ -4,10 +4,10 @@ set encoding=UTF-8
 syntax on
 set number
 set tabstop=4
+set shiftwidth=4
 set autoindent
 set smartindent
 set expandtab
-set shiftwidth=4
 
 " only vim can do this
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -35,11 +35,14 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wrap
 
-" use perttier to auto format code
+" map the keys Ctrl+j and Ctrl+k to moving between errors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" augroup autoformat_settings
-"     autocmd Filetype javascript
-" augroup END
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" makes prettier-eslint-cli power the gq command for automatic formatting without any plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
 
 " load plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
