@@ -1,17 +1,25 @@
 {
-  "suggest.noselect": false,
-  "tsserver.formatOnType": true,
-  "diagnostic.displayByAle": true,
-  "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
-    "typescript.tsx",
-    "graphql",
-    "css",
-    "markdown"
-  ]
+    "suggest.noselect": false,
+    "tsserver.formatOnType": true,
+    "diagnostic.displayByAle": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "eslint.autoFixOnSave": true,
+    "eslint.filetypes": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "coc.preferences.formatOnType": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "css",
+        "graphql",
+        "markdown"
+    ]
 }
