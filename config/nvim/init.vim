@@ -44,6 +44,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
 
+" Setup Prettier command
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " load plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/.config/nvim/plugins.vim
