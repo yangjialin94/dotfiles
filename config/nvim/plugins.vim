@@ -8,7 +8,7 @@ Plug 'sheerun/vim-polyglot'
 
 " files hierarchy tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -58,6 +58,8 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-vimlsp',
+  \ 'coc-prettier',
+  \ 'coc-eslint',
   \ ]
 
 " insert or delete parenthesis in pair
@@ -74,27 +76,31 @@ Plug 'tpope/vim-commentary'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'baskerville/bubblegum'
 
-" recomended from React Doc
+" javascript syntax
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 
-" Asynchronous Lint Engine (ALE)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'dense-analysis/ale'
+"" Asynchronous Lint Engine (ALE)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Plug 'dense-analysis/ale'
 
-let g:ale_fixers = {'typescript': ['prettier', 'eslint'],'javascript': ['prettier', 'eslint'],'python': ['black', 'isort'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
-let g:ale_linters = {'typescript': ['prettier', 'eslint'],'javascript': ['eslint'],'python': ['mypy', 'flake8', 'pylint'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
+"let g:ale_fixers = {'typescript': ['prettier', 'eslint'],'javascript': ['prettier', 'eslint'],'python': ['black', 'isort'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
+"let g:ale_linters = {'typescript': ['prettier', 'eslint'],'javascript': ['eslint'],'python': ['mypy', 'flake8', 'pylint'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
 
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
+"let g:ale_sign_error = '✘'
+"let g:ale_sign_warning = '⚠'
 
-let g:ale_fix_on_save = 1
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_python_flake8_options = '--max-line-length 88 --extend-ignore=E203'
+"let g:ale_fix_on_save = 1
+"let g:ale_sign_error = '>>'
+"let g:ale_sign_warning = '--'
+"let g:ale_echo_msg_error_str = 'E'
+"let g:ale_echo_msg_warning_str = 'W'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_python_flake8_options = '--max-line-length 88 --extend-ignore=E203'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
