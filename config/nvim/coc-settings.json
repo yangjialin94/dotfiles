@@ -3,6 +3,7 @@
     "tsserver.formatOnType": true,
     "diagnostic.displayByAle": true,
     "prettier.singleQuote": true,
+    "prettier.semi": false,
     "prettier.tabWidth": 4,
     "eslint.autoFixOnSave": true,
     "eslint.filetypes": [
