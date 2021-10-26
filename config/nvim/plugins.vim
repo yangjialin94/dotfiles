@@ -19,8 +19,6 @@ nmap <C-e> :NERDTreeToggle<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-let g:NERDTreeShowHidden=1
-
 " editorconfig support
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'editorconfig/editorconfig-vim'
@@ -88,30 +86,31 @@ Plug 'jparise/vim-graphql'
 
 "" Asynchronous Lint Engine (ALE)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
-"let g:ale_fixers = {'typescript': ['prettier', 'eslint'],'javascript': ['prettier', 'eslint'],'python': ['black', 'isort'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
-"let g:ale_linters = {'typescript': ['prettier', 'eslint'],'javascript': ['eslint'],'python': ['mypy', 'flake8', 'pylint'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc']}
+let g:ale_fixers = {'python': ['black', 'isort'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc'],'mdx':['pandoc']}
+let g:ale_linters = {'javascript': ['eslint'],'javascriptreact': ['eslint'],'typescript': ['eslint'],'typescriptreact': ['eslint'],'python': ['mypy', 'flake8', 'pylint'],'json':['prettier'],'html':['prettier'],'css':['prettier'],'xml':['xmllint'],'yaml':['yamlfix'],'yml':['yamlfix'],'md':['pandoc'],'mdx':['pandoc']}
 
-"let g:ale_sign_error = '✘'
-"let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 
-"let g:ale_fix_on_save = 1
-"let g:ale_sign_error = '>>'
-"let g:ale_sign_warning = '--'
-"let g:ale_echo_msg_error_str = 'E'
-"let g:ale_echo_msg_warning_str = 'W'
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"let g:ale_python_flake8_options = '--max-line-length 88 --extend-ignore=E203'
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_python_flake8_options = '--max-line-length 88 --extend-ignore=E203'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+  \ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 let g:prettier#config#tab_width = 4
 let g:prettier#config#single_quote = 'true'
+let g:prettier#config#semi = 'false'
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#config#config_precedence = 'cli-override'
